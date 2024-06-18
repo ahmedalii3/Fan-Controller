@@ -1,0 +1,13 @@
+/*
+ * lcd.c
+ *
+ *  Created on: Jun 14, 2024
+ *      Author: DELL
+ */
+
+#include"lcd.h"
+#include"gpio.h"
+
+void LCD_init(void){
+	GPIO_setupPinDirection(RS_port)
+}

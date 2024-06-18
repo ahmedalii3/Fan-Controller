@@ -1,0 +1,33 @@
+/*
+ * adc.c
+ *
+ *  Created on: Jun 14, 2024
+ *      Author: DELL
+ */
+#include "avr/io.h" /* To use the ADC Registers */
+#include <avr/interrupt.h> /* For ADC ISR */
+#include "adc.h"
+#include "common_macros.h" /* To use the macros like SET_BIT */
+
+volatile uint16 adcResult =0;
+
+ISR(ADC_vect){
+	adcResult = ADC;
+}
+
+void ADC_init(ADC_configType* Config_Ptr){
+	ADMUX = 0 ;
+
+	ADMUX |= ((Config_Ptr->ref_volt) << 6);
+
+	ADCSRA |= (1<<ADEN);
+	ADCSRA |= (1<<ADIE);
+	ADCSRA |= ((Config_Ptr->prescaler) << 0);
+
+}
+void ADC_readChannel(uint8 channelNum){
+	channelNum &= 0x07;
+	ADMUX &= 0xE0;
+	ADMUX |= (channelNum);
+	SET_BIT(ADCSRA,ADSC);
+}

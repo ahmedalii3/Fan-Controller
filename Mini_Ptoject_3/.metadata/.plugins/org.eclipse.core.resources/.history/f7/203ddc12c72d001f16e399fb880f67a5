@@ -1,0 +1,27 @@
+/*
+ * main.c
+ *
+ *  Created on: Jun 18, 2024
+ *      Author: DELL
+ */
+#include "lcd.h"
+#include "adc.h"
+#include "lm35.h"
+#include <util/delay.h> /* For the delay functions */
+#include <avr/io.h> /* To use SREG register */
+#include "motor.h"
+int main(void){
+
+
+	DcMotor_Init();
+
+	while(1){
+//		DcMotor_Rotate(CW,50);
+//		_delay_ms(1000);
+		DcMotor_Rotate(ACW,100);
+		_delay_ms(1000);
+		DcMotor_Rotate(stop,50);
+		_delay_ms(1000);
+	}
+	return 0;
+}

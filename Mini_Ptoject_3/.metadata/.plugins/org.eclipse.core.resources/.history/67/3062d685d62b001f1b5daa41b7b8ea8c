@@ -1,0 +1,14 @@
+/*
+ * adc.c
+ *
+ *  Created on: Jun 14, 2024
+ *      Author: DELL
+ */
+#include "avr/io.h" /* To use the ADC Registers */
+#include <avr/interrupt.h> /* For ADC ISR */
+#include "adc.h"
+#include "common_macros.h" /* To use the macros like SET_BIT */
+
+void adc_init(){
+	ADMUX;
+}

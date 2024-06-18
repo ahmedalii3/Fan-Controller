@@ -1,0 +1,17 @@
+/*
+ * lcd.h
+ *
+ *  Created on: Jun 14, 2024
+ *      Author: DELL
+ */
+
+#ifndef LCD_H_
+#define LCD_H_
+
+#include "std_types.h"
+
+
+void LCD_init(void);
+void LCD_sendCommand();
+
+#endif /* LCD_H_ */

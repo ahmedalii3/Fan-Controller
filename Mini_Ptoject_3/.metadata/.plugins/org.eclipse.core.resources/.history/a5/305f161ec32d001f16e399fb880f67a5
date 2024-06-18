@@ -1,0 +1,11 @@
+/*
+ * pwm.c
+ *
+ *  Created on: Jun 19, 2024
+ *      Author: DELL
+ */
+#include "gpio.h"
+#include"avr/io.h"
+void PWM_Timer0_Start(uint8 duty_cycle){
+
+}
